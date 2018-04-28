@@ -48,7 +48,12 @@ function renderDigit( x, y, num ) {
     
 }
 
-okey.onclick = function() {
+okey.onclick = function() { 
+    if ( run ) {
+        return;
+    }
+    run = true;
+    
     EN = document.getElementById("range").value;
     EN = EN >= 100 ? 99 : EN;
     EN = EN <= 1 ? 2 : EN;
@@ -57,10 +62,7 @@ okey.onclick = function() {
         num.push( (Math.random() * 1000) % EN + BE  );
     }
     var count = 0;
-    if ( run ) {
-        return;
-    }
-    run = true;
+   
     var int = setInterval(
         function() {
             if ( count == 14 ) {
@@ -74,6 +76,11 @@ okey.onclick = function() {
 }
 
  group.onclick = function() {
+    if ( run ) {
+        return;
+    }
+    run = true; 
+
     students = [];
     EN = document.getElementById("range").value;
     EN = EN >= 100 ? 99 : EN;
@@ -98,10 +105,7 @@ okey.onclick = function() {
         }
     }
     var count = 0;
-    if ( run ) {
-        return;
-    }
-    run = true; 
+    
     var int = setInterval(
     function() {
         if ( count == numbers ) {
